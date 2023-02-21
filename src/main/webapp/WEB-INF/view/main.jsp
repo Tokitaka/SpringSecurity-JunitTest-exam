@@ -29,20 +29,36 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="collapsibleNavbar">
 
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/loginForm">로그인</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/joinForm">회원가입</a>
-                            </li>
-                        </ul>
+
+                        <c:choose>
+                            <c:when test="${principal != null}">
+
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">로그아웃</a>
+                                    </li>
+                                </ul>
+                            </c:when>
+
+                            <c:otherwise>
+
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/loginForm">로그인</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/joinForm">회원가입</a>
+                                    </li>
+                                </ul>
+                            </c:otherwise>
+                        </c:choose>
+
 
                     </div>
                 </div>
             </nav>
 
-            <h1>main page</h1>
+            <img src="/images/ha.jpg">
             <div class="mt-3 p-5 bg-warning text-white text-center" style="margin-bottom: 0">
                 <p>Created by HeeSun</p>
                 <p>📞 010-2222-7777</p>

@@ -1,5 +1,6 @@
 package shop.mtcoding.exam.util;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,12 +10,21 @@ public class EncryptSHA256 {
         String sha = "";
 
         try {
-            MessageDigest sh = MessageDigest.getInstance("SHA-256");
-            sh.update(str.getBytes());
-            byte[] byteData = sh.digest();
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            // sh.update(str.getBytes());
+            // byte[] byteData = sh.digest();
+            // StringBuilder sb = new StringBuilder();
+            // for (byte byteDatum : byteData) {
+            // sb.append(Integer.toString((byteDatum & 0xff) + 0x100, 16).substring(1));}
+
+            byte[] hash = digest.digest(str.getBytes(StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
-            for (byte byteDatum : byteData) {
-                sb.append(Integer.toString((byteDatum & 0xff) + 0x100, 16).substring(1));
+            for (byte byteDatum : hash) {
+                String hex = Integer.toHexString(0xff & byteDatum);
+                if (hex.length() == 1) {
+                    sb.append('0');
+                }
+                sb.append(hex);
             }
 
             sha = sb.toString();

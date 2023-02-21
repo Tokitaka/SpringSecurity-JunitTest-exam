@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.exam.dto.UserReqDto.JoinReqDto;
+import shop.mtcoding.exam.dto.UserReqDto.LoginReqDto;
 import shop.mtcoding.exam.handler.ex.CustomException;
 import shop.mtcoding.exam.model.User;
 import shop.mtcoding.exam.model.UserRepository;
@@ -31,6 +32,21 @@ public class UserService {
         if (result != 1) {
             throw new CustomException("회원가입 실패");
         }
+    }
+
+    @Transactional
+    public User login(LoginReqDto loginReqDto) {
+
+        String checkPassword = EncryptSHA256.encryptSHA256(loginReqDto.getPassword());
+
+        // System.out.println(checkPassword);
+        User principal = userRepository.findByUsernameAndPassword(loginReqDto.getUsername(), checkPassword);
+
+        if (principal == null) {
+            throw new CustomException("Username 또는 Password를 확인하세요.");
+        }
+
+        return principal;
     }
 
 }
