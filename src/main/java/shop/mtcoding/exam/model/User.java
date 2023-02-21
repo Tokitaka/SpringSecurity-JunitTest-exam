@@ -14,5 +14,4 @@ public class User {
     private String password;
     private String email;
     private Timestamp createdAt;
-    private int enabled;
 }

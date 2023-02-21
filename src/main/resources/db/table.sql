@@ -3,8 +3,7 @@ create table user_tb (
     username varchar not null unique,
     password varchar not null,
     email varchar not null unique, 
-    created_at timestamp not null, 
-    enabled int
+    created_at timestamp not null
 );
 
 commit;

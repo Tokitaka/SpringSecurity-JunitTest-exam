@@ -21,7 +21,7 @@
 
             <nav class="navbar navbar-expand-sm bg-warning navbar-dark mb-3">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Blog</a>
+                    <a class="navbar-brand" href="#">Blog</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -43,7 +43,7 @@
             </nav>
 
             <div class="container my-3" style="width: 400px;">
-                <form action="/join" method="post" onsubmit="return valid()">
+                <form action="/join" method="post">
                     <div class="form-group mb-2">
                         <input type="text" name="username" class="form-control" placeholder="Enter username"
                             id="username" required>
