@@ -83,7 +83,7 @@ public class UserControllerTest {
         ResultActions resultActions = mvc.perform(get("/main").session(mockSession));
         User principal = (User) mockSession.getAttribute("principal");
         assertThat(principal.getUsername()).isEqualTo("ssar");
-        resultActions.andExpect(status().is3xxRedirection());
+        resultActions.andExpect(status().isOk());
 
     }
 
