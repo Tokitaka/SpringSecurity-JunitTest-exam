@@ -68,7 +68,7 @@ public class UserControllerTest {
         String requsetBody = "username=ssar&password=1234";
 
         ResultActions resultActions = mvc.perform(post("/login").content(requsetBody)
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE).session(mockSession));
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED_VALUE));
 
         User principal = (User) mockSession.getAttribute("principal");
 

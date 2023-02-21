@@ -13,15 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 import lombok.extern.slf4j.Slf4j;
 import shop.mtcoding.exam.model.User;
 
-@Slf4j
 @Component
 public class CustomInterceptor implements HandlerInterceptor {
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
             throws Exception {
+
         HttpSession session = request.getSession();
 
         User principal = (User) session.getAttribute("principal");
