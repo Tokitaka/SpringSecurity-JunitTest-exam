@@ -26,7 +26,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/main")
-    public void main() {
+    public String main() {
+        return "main";
     }
 
     @GetMapping("/loginForm")

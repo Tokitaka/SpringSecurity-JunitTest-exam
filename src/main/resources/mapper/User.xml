@@ -5,8 +5,7 @@
 
 <mapper namespace="shop.mtcoding.exam.model.UserRepository">
   <select id ="findAll" resultType="shop.mtcoding.exam.model.User">
-    select * from user_tb where roll = 'USER'
-    order by id desc
+    select * from user_tb 
   </select>
 
   <insert id = "insert">
