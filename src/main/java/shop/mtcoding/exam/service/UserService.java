@@ -37,10 +37,13 @@ public class UserService {
 
     @Transactional
     public User login(LoginReqDto loginReqDto) {
-
         User user = userRepository.findByUser(loginReqDto.getUsername());
+
+        if (user == null) {
+            throw new CustomException("해당 username을 찾을 수 없습니다.");
+        }
+
         String userSalt = user.getSalt();
-        String PasswordSalt = loginReqDto.getPassword() + userSalt;
 
         String checkPassword = EncryptSHA256Salt.encryptSHA256(loginReqDto.getPassword(), userSalt);
 
