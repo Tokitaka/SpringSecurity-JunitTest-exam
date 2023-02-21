@@ -9,7 +9,7 @@
   </select>
 
   <insert id = "insert">
-    insert into user_tb(username, password, email,created_at) values (#{username}, #{password}, #{email}, now())
+    insert into user_tb(username, password, salt,  email,created_at) values (#{username}, #{password}, #{salt}, #{email}, now())
   </insert>
 
   <select id="findByUsernameAndPassword" resultType="shop.mtcoding.exam.model.User">
