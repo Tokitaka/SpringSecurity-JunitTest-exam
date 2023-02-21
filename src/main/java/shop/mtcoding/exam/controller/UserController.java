@@ -1,7 +1,5 @@
 package shop.mtcoding.exam.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import shop.mtcoding.exam.dto.UserReqDto.LoginReqDto;
 import shop.mtcoding.exam.handler.ex.CustomException;
 import shop.mtcoding.exam.model.User;
 import shop.mtcoding.exam.service.UserService;
-import shop.mtcoding.exam.util.CustomInterceptor;
 
 @Controller
 public class UserController {

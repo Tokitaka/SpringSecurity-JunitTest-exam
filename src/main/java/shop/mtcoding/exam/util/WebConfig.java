@@ -10,7 +10,8 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CustomInterceptor())
-                .addPathPatterns("/main");
+                .addPathPatterns("/main")
+                .excludePathPatterns("/login", "/join", "/joinForm", "/loginForm");
 
     }
 

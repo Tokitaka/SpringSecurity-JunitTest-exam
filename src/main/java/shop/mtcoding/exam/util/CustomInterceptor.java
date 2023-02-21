@@ -10,8 +10,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import lombok.extern.slf4j.Slf4j;
 import shop.mtcoding.exam.model.User;
 
+@Slf4j
 @Component
 public class CustomInterceptor implements HandlerInterceptor {
 
@@ -24,13 +26,12 @@ public class CustomInterceptor implements HandlerInterceptor {
 
         User principal = (User) session.getAttribute("principal");
 
-        if (principal != null) {
-            response.sendRedirect("/main");
-            return true;
+        if (principal == null) {
+            response.sendRedirect("/loginForm");
+
         }
 
-        response.sendRedirect("/loginForm");
-        return false;
+        return true;
     }
 
     @Override
